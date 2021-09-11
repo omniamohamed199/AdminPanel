@@ -1,0 +1,74 @@
+
+body {
+    font-size: 1rem  !important;
+    font-family: 'Roboto', sans-serif !important;;
+    font-weight: 800 !important;
+    overflow-x: hidden;
+  }
+  .body-wrapper {
+    min-height: calc(100vh - 70px);
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    padding-right: 0;
+}
+.form-control {
+  margin: .2rem 0rem;
+}
+.main{
+  transition: width 0.25s ease, margin 0.25s ease;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    background: #f2edf3;;
+    padding: 2.75rem 2.25rem;
+    width: 100%;
+    height: 100vh;
+}
+
+  p {
+    font-size: $default-font-size;
+  }
+  h1,
+  .h1 {
+    font-size: 2.19rem;
+  }
+  h2,
+  .h2 {
+    font-size: 1.88rem;
+  }
+  h3,
+  .h3 {
+    font-size: 1.56rem;
+  }
+  h4,
+  .h4 {
+    font-size: 1.13rem;
+  }
+  h5,
+  .h5 {
+    font-size: 1rem;
+  }
+  h6,
+  .h6 {
+    font-size: .9375rem;
+  }
+  p {
+    font-size: .9375rem;
+    line-height: 1.5;
+  }
+
+  .icon-lg {
+    font-size: 3.438rem;
+  }
+  .icon-md {
+    font-size: 1.875rem;
+  }
+  .icon-sm {
+    font-size: 1rem;
+  }
+  

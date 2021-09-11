@@ -1,0 +1,14 @@
+{
+    "Department": "القسم",
+    "EmployeeName": "اسم الموظف",
+    "EmployeeCode": "كود الموظف",
+    "EmployeeDepartment": "قسم الخاص به",
+    "EmployeeGender": "نوعه",
+    "EmployeeBirthdate": "تاريخ الميلاد",
+    "Search": "البحث عن موظف",
+    "Gender": "النوع",
+    "Male": "ذكر",
+    "Female": "انثي",
+    "AddBtn": "اضافه",
+    "AddEmployee":"اضافه موظف"
+}

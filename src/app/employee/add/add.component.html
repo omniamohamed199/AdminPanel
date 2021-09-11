@@ -1,0 +1,206 @@
+<nav>
+  <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success">{{ successMessage }}
+  </ngb-alert>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-Add-tab" data-bs-toggle="tab" data-bs-target="#nav-Add" type="button"
+      role="tab" aria-controls="nav-Add" aria-selected="true">{{'AddEmployee' |translate}}</button>
+    <button class="nav-link" id="nav-Search-tab" data-bs-toggle="tab" data-bs-target="#nav-Search" type="button"
+      role="tab" aria-controls="nav-Search" aria-selected="false" (click)="GetAllEmp()">{{'Search' |translate}}</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-Add" role="tabpanel" aria-labelledby="nav-Add-tab">
+    <div class="card">
+      <div class="card-body">
+        <form #AddEmplForm="ngForm" (ngSubmit)="AddEmployee()">
+          <div class="col-lg-10">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="row align-items-center">
+                  <div class="col-lg-5">
+                    <label class="pb-2">{{'EmployeeCode' | translate}} <span class="required">*</span></label>
+                  </div>
+                  <div class="col-lg-7">
+                    <input type="text" class="form-control register" [(ngModel)]="Employee.Code"
+                      placeholder="Employee Code" type="text" name="EmpCode" type="text" id="EmpCode" required
+                      #EmpCode=ngModel>
+                    <div *ngIf="!EmpCode?.valid && (EmpCode?.dirty || EmpCode?.touched) " class="error">
+                      <div *ngIf="EmpCode.errors.required" class="required word">
+                        Code is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-lg-5">
+                    <label class="pb-2">{{'EmployeeDepartment' |translate}} <span class="required">*</span></label>
+                  </div>
+                  <div class="col-lg-7">
+                    <select #Department name="Department" class="form-select" id="Department"
+                      [(ngModel)]="Employee.Department" required>
+                      <option *ngFor="let dept of DepartmentsList" [value]="dept.Depart_ID">{{dept.Depart_Name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-lg-5">
+                    <label class="pb-2">{{'Gender' |translate}}</label>
+                  </div>
+                  <div class="col-lg-7 pb-1 pt-2 ps-4 pe-4">
+                    <div class="row">
+                      <div class="col-lg-6 form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="male" name="gender" value="male"
+                            [(ngModel)]="Employee.Gender">
+                          {{'Male' |translate}}
+                        </label>
+                      </div>
+                      <div class="col-lg-6 form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="female" name="gender" value="female"
+                            [(ngModel)]="Employee.Gender">
+                          {{'Female' |translate}}
+                        </label>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                <div class="row align-items-center">
+                  <div class="col-lg-5">
+                    <label class="pb-2">{{'EmployeeName' |translate}} <span class="required">*</span></label>
+                  </div>
+                  <div class="col-lg-7">
+                    <input type="text" class="form-control" [(ngModel)]="Employee.Name" placeholder="Employee Name"
+                      type="text" name="EmpNAME" type="text" id="EmpNAME" required #EmpNAME="ngModel">
+                    <div *ngIf="!EmpNAME?.valid && (EmpNAME?.dirty || EmpNAME?.touched) " class="error">
+                      <div *ngIf="EmpNAME.errors.required" class="required word">
+                        Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-lg-5">
+                    <label class="pb-2">{{'EmployeeBirthdate' |translate}} <span class="required">*</span></label>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control" name="dp" [(ngModel)]="Employee.Birthdate" ngbDatepicker
+                          #d="ngbDatepicker">
+                        <div class="input-group-append pt-1">
+                          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <i class="zmdi zmdi-calendar-note"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="{{'AddBtn'|translate }}" class="btn btn-primary float-end"
+              [disabled]="!AddEmplForm.valid">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-Search" role="tabpanel" aria-labelledby="nav-Search-tab">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <form #AddEmplForm="ngForm" (ngSubmit)="AddEmployee()">
+            <div class="col-lg-10">
+              <div class="row ">
+                <div class="col-lg-6">
+                  <div class="row align-items-center">
+                    <div class="col-lg-5">
+                      <label class="pb-2">{{'EmployeeName' |translate}} <span class="required">*</span></label>
+                    </div>
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control" [(ngModel)]="Employee.Name" placeholder="Employee Name"
+                        type="text" name="EmpNAME" type="text" id="EmpNAME" required #EmpNAME="ngModel">
+                      <div *ngIf="!EmpNAME?.valid && (EmpNAME?.dirty || EmpNAME?.touched) " class="error">
+                        <div *ngIf="EmpNAME.errors.required" class="required word">
+                          Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row align-items-center">
+                    <div class="col-lg-3">
+                      <label class="pb-2">{{'EmployeeDepartment' |translate}} <span class="required">*</span></label>
+                    </div>
+                    <div class="col-lg-7">
+                      <select #Department name="Department" class="form-select" id="Department"
+                        [(ngModel)]="Employee.Department" required>
+                        <option *ngFor="let dept of DepartmentsList" [value]="dept.Depart_ID">{{dept.Depart_Name}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-lg-2 form-group">
+                      <input type="submit" value="{{'Add' |translate}}" class="btn btn-primary float-end">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="row pt-4">
+          <table class="table table-striped text-center" *ngIf="EmployeeList?.length>0">
+            <thead class="table-light">
+              <th>
+                <input class="checkbox" type="checkbox" (change)="CheckOrUnCheckAll()" [(ngModel)]="CheckedAll">
+              </th>
+              <th>{{'EmployeeCode' | translate}}</th>
+              <th>{{'EmployeeName' |translate}}</th>
+              <th>{{'EmployeeDepartment' |translate}}</th>
+              <th>{{'EmployeeGender' |translate}}</th>
+              <th>{{'EmployeeBirthdate' |translate}}</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of EmployeeList">
+                <td>
+                  <input class="checkbox" type="checkbox" (change)="item.Checked = !item.Checked;IsAllChecked()"
+                    [(ngModel)]="item.Checked">
+                </td>
+                <td>
+                  {{item.Code}}
+                </td>
+                <td>
+                  {{item.Name}}
+                </td>
+                <td>
+                  {{item.Department}}
+                </td>
+                <td>
+                  {{item.Gender}}
+                </td>
+                <td>
+                  {{item.Birthdate.day}}-{{item.Birthdate.month}}-{{item.Birthdate.year}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

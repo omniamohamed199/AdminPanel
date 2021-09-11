@@ -1,0 +1,12 @@
+@import '../../../styles';
+:host {
+  width: 100%;
+}
+.footer {
+  background: white;
+  color: gray;
+  padding: 20px 1rem;
+  width: 100%;
+  font-size: calc(#{$default-font-size} - 0.05rem);
+
+}

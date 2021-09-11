@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+.sidebar {
+    min-height: calc(100vh - #{$navbar-height});
+    background: $sidebar-bg;
+    padding: 0;
+    width: $sidebar-width-lg;
+    z-index: 11;
+    height: 100%;
+    filter: drop-shadow(1px 0px 4px gray);
+    .nav-item{
+        .nav-link {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .menu-title {
+                color: $body-color;
+                display: inline-block;
+                font-size: $default-font-size;
+                line-height: 1;
+                vertical-align: middle;
+              }
+            i{
+                min-width: 2rem;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+            }
+        }
+        &.active {
+          background: #02b0f0;
+          width: 100%;
+          border-radius: 20px 0px 0px 20px;
+            .nav-link {
+              .menu-title {
+                color:white;           
+              }
+              i {
+                color: white;
+              }
+            }
+          }
+    }
+    
+}

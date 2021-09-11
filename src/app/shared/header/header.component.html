@@ -1,0 +1,28 @@
+<nav class="navbar  col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" routerLink="/"><img src="assets/images/logo.png" alt="logo" /></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+        <div class="d-md-block">
+            {{today | FormateDate}}
+        </div>
+        <ul class="navbar-nav ">
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown-toggle" id="profileDropdown">
+                    <div class="nav-profile-img">
+                        <img src="assets/images/User.png" alt="image">
+                        <span class="availability-status online"></span>
+                    </div>
+                    <div class="nav-profile-text">
+                        <p class="mb-1 text-black">{{'Name' |translate}}</p>
+                    </div>
+                </a>
+
+            </li>
+        </ul>
+        <select #locale (change)="changeLocale(locale.value)">
+            <option value="en" [selected]="locale.value=='en'">English</option>
+            <option value="ar" [selected]="locale.value=='ar'">Arabic</option>
+        </select>
+    </div>
+</nav>

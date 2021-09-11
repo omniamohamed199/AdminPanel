@@ -1,0 +1,14 @@
+{
+    "Department": "Department",
+    "EmployeeName": "Employee Name",
+    "EmployeeCode": "Employee Code",
+    "EmployeeDepartment": "EmployeeDepartment",
+    "EmployeeGender": "EmployeeGender",
+    "EmployeeBirthdate": "EmployeeBirthdate",
+    "Search":"Search Employee",
+    "Gender":"Gender",
+    "Male":"Male",
+    "Female":"Female",
+    "AddBtn":"Add",
+    "AddEmployee":"اضافه موظف"
+}
