@@ -1,12 +1,7 @@
-<div class="container-fluid p-0">
-    <app-header></app-header>
-    <div class="container-fluid body-wrapper ps-0">
-        <app-sidebar></app-sidebar>
-        <div class="main">
-            <div class="content">
-                <router-outlet></router-outlet>
-            </div>
-            <app-footer></app-footer>
-        </div>
+<div class="container-fluid p-0 d-flex">
+    <app-sidebar></app-sidebar>
+    <div class="content p-0 ps-2">
+        <app-header></app-header>
+        <router-outlet></router-outlet>
     </div>
 </div>
